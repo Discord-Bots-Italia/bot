@@ -165,16 +165,5 @@ async def on_member_join(member):
     if member.bot:
         
         await member.add_roles(role)
-        
-@bot.command()
-async def test(ctx):
-    
-    file = discord.File('/Users/sebastiano/Desktop/image.png')
-    
-    await ctx.send(file = file)
-    
 
-
-#hola amici 
-   
 bot.run('NjA3MDQwNzk2NzgwMTM0NDIy.XW4u-g.01H7jCK2wIDzjaVTrqK-P83Weqc')
