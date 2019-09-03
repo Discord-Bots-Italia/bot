@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 
-bot = commands.Bot(command_prefix='>', owner_ids = [488398758812319745, 446650423416193034])
+bot = commands.Bot(command_prefix='>', owner_ids = [488398758812319745, 446650423416193034],owner_id=None)
 bot.remove_command('help')
 bot.load_extension("jishaku")
 
