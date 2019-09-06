@@ -151,9 +151,11 @@ async def on_raw_reaction_add(payload):
 @bot.command()
 async def ping(ctx):
     
+    author = ctx.author
+
     pong = (round(bot.latency * 1000))
     
-    emb = discord.Embed(description = f':ping_pong:{pong}ms', colour = ctx.author.colour)
+    emb = discord.Embed(description = f':ping_pong:{pong}ms', colour = author.colour)
     emb.set_author(name = f'{ctx.author.name} Pong!', icon_url = ctx.author.avatar_url)
     
     await ctx.send(embed = emb)
