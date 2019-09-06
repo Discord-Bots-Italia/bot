@@ -139,7 +139,7 @@ async def on_raw_reaction_add(payload):
                     return await h.delete()
 
                      
-                embed = discord.Embed(title="Bot Rifiutato",description=f"{nomebot} di {autore} è stato rifiutato da <@{user_id}>",colour=discord.Colour.red())
+                embed = discord.Embed(title="Bot Rifiutato",description=f"{nomebot} di <@{autore}> è stato rifiutato da <@{user_id}>",colour=discord.Colour.red())
                 embed.add_field(name="Ragione",value=ms.content)
                 rej = await channel.send(embed=embed)
                 
