@@ -12,7 +12,12 @@ async def on_ready():
     print("I'm Online! \nName:", bot.user, '\nID:', bot.user.id)
    
     await bot.change_presence(activity = discord.Streaming(name='Checking the queue', url = 'https://www.twitch.tv/ssebordd'))
-   
+@bot.command()
+@commands.has_permissions(administrator=True, kick_members=True)
+async def clear(ctx, amount=100):
+  """Delete some messages"""
+  await ctx.message.delete()
+  await ctx.channel.purge(limit=amount)   
 @bot.command()
 async def submit(ctx):
     embed = discord.Embed(colour=ctx.author.colour)
