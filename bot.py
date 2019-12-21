@@ -141,7 +141,7 @@ async def on_raw_reaction_add(payload):
                      
                 embed = discord.Embed(title="Bot Rifiutato",description=f"{nomebot} di <@{autore}> è stato rifiutato da <@{user_id}>",colour=discord.Colour.red())
                 embed.add_field(name="Ragione",value=ms.content)
-                rej = await channel.send(embed=embed)
+                rej = await channel.send(content=f"<@{autore}>",embed=embed)
                 
                 jump = discord.Embed(description=f'[Link]({rej.jump_url})')
                 await ch.send(embed=jump)
