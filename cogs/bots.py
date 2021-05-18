@@ -95,13 +95,13 @@ class Bots(commands.Cog):
         if sito:
             emb.add_field(name="Sito", value=sito)
 
-        queue = self.bot.get_channel(config.queue_channel)
+        bot_logs = self.bot.get_channel(config.logs_channel)
         verification = self.bot.get_channel(config.verification_channel)
         emb.set_author(name = ctx.author, icon_url = ctx.author.avatar_url)
         emb.set_thumbnail(url=ctx.author.avatar_url)
         emb.set_footer(text = ctx.author.id)
 
-        msg = await queue.send(embed=emb)
+        msg = await bot_logs.send(embed=emb)
         log = await verification.send(embed=emb)
 
         await log.add_reaction('✅')

@@ -29,6 +29,7 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix=commands.when_mentioned_or(">"), intents=intents)
 slash = SlashCommand(bot, sync_commands=True, override_type=True)
+bot.remove_command("help")
 bot.load_extension("jishaku")
 
 @bot.event
