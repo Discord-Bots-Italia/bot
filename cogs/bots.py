@@ -82,9 +82,9 @@ class Bots(commands.Cog):
         "Invia una richiesta per aggiungere il tuo bot nel server."
 
         try:
-            invito = discord.utils.oauth_url(int(id), permissions=discord.Permissions(0))
+            invito = discord.utils.oauth_url(int(id), permissions=discord.Permissions(0), scopes=('bot','applications.commands'))
         except:
-            invito = discord.utils.oauth_url(id.id, permissions=discord.Permissions(0))
+            invito = discord.utils.oauth_url(id.id, permissions=discord.Permissions(0), scopes=('bot','applications.commands'))
         emb = discord.Embed(title=nome)
         if versione:
             emb.add_field(name="Versione", value=versione)
