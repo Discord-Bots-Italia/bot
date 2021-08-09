@@ -46,7 +46,6 @@ class Events(commands.Cog):
                     except asyncio.TimeoutError:
                         h = await ch.send("Timed out.")
                         await asyncio.sleep(5)
-                        await ms.delete()
                         return await h.delete()
 
                     embed = discord.Embed(title="Bot Rifiutato",description=f"❌ | {nomebot} di <@{autore}> è stato rifiutato da <@{user_id}>",colour=discord.Colour.red())
