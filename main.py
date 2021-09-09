@@ -20,7 +20,7 @@
 ඞඞඞඞ⣷⣤⣬⣅⣶ඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞ
 """
 
-import discord, os, config
+import discord, os, config, aiosqlite
 from discord.ext import commands
 from discord_slash import SlashCommand, SlashContext
 from discord_slash.utils.manage_commands import create_option
@@ -38,6 +38,9 @@ bot.load_extension("jishaku")
 
 @bot.event
 async def on_ready():
+    bot.db = await aiosqlite.connect("db.db")
+    await bot.db.execute("CREATE TABLE IF NOT EXISTS toxic (user, points)")
+    await bot.db.commit()
     await bot.change_presence(status=discord.Status.dnd, activity=discord.Streaming(name="torturando miky", url="https://www.twitch.tv/mikyottantotto"))
     print("ready as", bot.user)
 
