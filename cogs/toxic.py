@@ -6,7 +6,7 @@ from discord_slash.utils.manage_commands import create_option, create_choice
 class Toxic(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.toxic_words = ['dc,da', 'dc;da', 'dc , da', "che me ne fot", "chi te l'ha chiesto", "cazzo che me ne frega", "who asked", "dc da", "da dc", "don't care", "didn't ask", "dc, da", "dc ,da", "dc; da", "dc ;da", "che me ne frega", "https://tenor.com/view/the-vasteness-i-dont-give-a-shit-gif-12319215", "https://tenor.com/view/ea-me-che-me-ne-fott-gif-21398276", "https://tenor.com/view/che-me-ne-fott-gif-22944800"]
+        self.toxic_words = ['dc,da', 'dc;da', 'dc , da', "che me ne fot", "chi te l'ha chiesto", "cazzo che me ne frega", "who asked", "dc da", "da dc", "don't care", "didn't ask", "dc, da", "dc ,da", "dc; da", "dc ;da", "che me ne frega", "https://tenor.com/view/the-vasteness-i-dont-give-a-shit-gif-12319215", "https://tenor.com/view/ea-me-che-me-ne-fott-gif-21398276", "https://tenor.com/view/che-me-ne-fott-gif-22944800", "stay mad", "cry about", "shut up", "cope"]
     
     async def toxic_check(self, message):
         if message.guild.id == config.dbi:
