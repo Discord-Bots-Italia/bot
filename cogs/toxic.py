@@ -96,7 +96,7 @@ class Toxic(commands.Cog):
             res += f"`{count}.` **{str(u)}**: `{users[x]}` {word}\n"
 
         try: await ctx.reply(res, mention_author=False)
-        except: await ctx.send(res)
+        except: await ctx.send(res, hidden=True)
             
 def setup(bot):
     bot.add_cog(Toxic(bot))
