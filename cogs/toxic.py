@@ -8,9 +8,7 @@ class Toxic(commands.Cog):
         self.bot = bot
         self.toxic_words = ['dc,da', 'dc;da', 'dc , da', "che me ne fot", "chi te l'ha chiesto", "cazzo che me ne frega", "who asked", "dc da", "da dc", "don't care", "didn't ask", "dc, da", "dc ,da", "dc; da", "dc ;da", "che me ne frega"]
     
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        
+    async def toxic_check(self, message):
         if message.guild.id == config.dbi:
             if message.author.bot:
                 return 
@@ -30,6 +28,14 @@ class Toxic(commands.Cog):
                     await self.bot.db.execute("INSERT INTO toxic (user, points) VALUES (?, ?)", (message.author.id, 1))
                 await self.bot.db.commit()
                 await message.reply("`+1` toxic point, godo")
+
+    @commands.Cog.listener()
+    async def on_message_edit(self, before, after):
+        await self.toxic_check(after)
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        await self.toxic_check(message)
 
     @cog_ext.cog_slash(guild_ids=[config.dbi], name="toxic", description="Quanti punti toxic hai?", options=[
         create_option(
