@@ -6,8 +6,8 @@ from discord_slash.utils.manage_commands import create_option, create_choice
 class Toxic(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.toxic_words = ['dc,da', 'dc;da', 'dc , da', "don't care, didn't ask"]
-
+        self.toxic_words = ['dc,da', 'dc;da', 'dc , da', "che me ne fot", "chi te l'ha chiesto", "cazzo che me ne frega", "who asked", "dc da", "da dc", "don't care", "didn't ask", "dc, da", "dc ,da", "dc; da", "dc ;da", "che me ne frega"]
+    
     @commands.Cog.listener()
     async def on_message(self, message):
         
