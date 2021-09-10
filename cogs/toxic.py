@@ -62,9 +62,9 @@ class Toxic(commands.Cog):
             word = "points"
 
         try: await ctx.reply(f"**{str(member)}**: `{points}` toxic {word}, e si gode", mention_author=False)
-        except: await ctx.send(f"**{str(member)}**: `{points}` toxic {word}, e si gode")
+        except: await ctx.send(f"**{str(member)}**: `{points}` toxic {word}, e si gode", hidden=True)
 
-    @cog_ext.cog_slash(guild_ids=[config.dbi], name="leaderbord", description="Chi è il piú toxic?")
+    @cog_ext.cog_slash(guild_ids=[config.dbi], name="leaderboard", description="Chi è il piú toxic?")
     async def leadeboard_slash(self, ctx: SlashContext):
         await self.leaderboard(ctx)
 
@@ -79,7 +79,7 @@ class Toxic(commands.Cog):
 
         if len(users) == 0:
             try: await ctx.reply("Niente toxic, non godo", mention_author=False)
-            except: await ctx.send("Niente toxic, non godo")
+            except: await ctx.send("Niente toxic, non godo", hidden=True)
             return
 
         res = ""
